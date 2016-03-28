@@ -10,6 +10,11 @@
     <Color x:Key="ContrastColor">White</Color>
     <Color x:Key="SystemAccentColor">SteelBlue</Color>
 
+    <Style TargetType="TextBlock" x:Key="LoadGameItem">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    
     <ResourceDictionary.ThemeDictionaries>
 
         <ResourceDictionary x:Key="Light">
