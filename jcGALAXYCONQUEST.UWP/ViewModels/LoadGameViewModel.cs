@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 
+using jcGALAXYCONQUEST.PCL.Constants;
 using jcGALAXYCONQUEST.PCL.Transports.SaveGames;
+using jcPL.PCL.Implementations;
 
 namespace jcGALAXYCONQUEST.UWP.ViewModels {
     public class LoadGameViewModel : BaseViewModel {
@@ -15,6 +17,12 @@ namespace jcGALAXYCONQUEST.UWP.ViewModels {
         }
 
         public async Task<bool> LoadData() {
+            var fs = new JSONPL(_uwpps);
+
+            var listing = await fs.GetAsync<SaveGameListing>(PLKeys.LOADGAME_SAVE_GAME_LISTING);
+            
+            SGLising = listing == null ? new SaveGameListing() : listing.Value;
+
             return true;
         }
     }
